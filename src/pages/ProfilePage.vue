@@ -25,6 +25,7 @@ import { AppState } from '../AppState.js';
 import {profilesService} from '../services/ProfilesService.js'
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
+import { postsService } from '../services/PostsService.js';
 
 export default {
     setup(){
@@ -35,6 +36,15 @@ export default {
                 await profilesService.getProfileById(profileId)
             } catch (error) {
                 logger.error(error)
+                Pop.error(error.message)
+            }
+        }
+        async function getPostsByCreatorId() {
+            try {
+                const profileId = route.params.profileId
+                await postsService.getPostsByQuery({ creatorId: profileId })
+            } catch (error) {
+                logger.log(error)
                 Pop.error(error.message)
             }
         }
