@@ -1,8 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-color px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+        <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Internet-icon.svg/2048px-Internet-icon.svg.png" height="45" />
+        <!-- <h1>Network</h1> -->
       </div>
     </router-link>
     <button
@@ -59,6 +60,10 @@ a:hover {
   nav {
     height: 64px;
   }
+}
+
+.bg-color {
+  background-color: #77bce4;
 }
 
 </style>
