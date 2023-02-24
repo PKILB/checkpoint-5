@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div v-for="p in posts" class="row">
+    <div v-for="p in posts" class="row my-4">
       <PostBlog :post="p" />
     </div>
   </div>
