@@ -1,10 +1,11 @@
 <template>
-    <div class="col-12 border border-dark rounded">
+    <div class="col-8 m-auto border border-dark rounded">
         <div class="row">
-                    <!-- <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}"> -->
+                    <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}">
                     <div class="col-1 d-flex align-items-center my-3">
                         <img class="profile-picture" :src="post.creator.picture" :alt="post.creator.name">
                     </div>
+                </router-link>
                     <div class="col-11 text-start my-3">
                         <h6 class="ms-3">{{ post.creator.name }}</h6>
                     </div>
@@ -14,7 +15,6 @@
                     <div class="">
                         <p>{{ post.body }}</p>
                     </div>
-                    <!-- </router-link> -->
 
                 <div class="col-12 text-end">
                     <h2>Likes</h2>
@@ -47,6 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .profile-picture {
+    transform: translateY(10vh);
     height: 5vh;
     width: 5vh;
     border-radius: 50%;

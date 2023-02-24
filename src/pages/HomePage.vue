@@ -1,5 +1,8 @@
 <template>
   <div class="container-fluid">
+    <div class="row my-4">
+      <PostForm />
+    </div>
     <div v-for="p in posts" class="row my-4">
       <PostBlog :post="p" />
     </div>
