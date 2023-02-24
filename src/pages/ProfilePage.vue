@@ -14,6 +14,9 @@
                 </div>
             </div>
         </div>
+        <div v-for="posts in posts" class="row my-4">
+            <PostBlog class="elevation-5" :post="posts" />
+        </div>
     </div>
 </template>
 
@@ -51,14 +54,17 @@ export default {
 
         onMounted(() => {
             getProfileById()
+            getPostsByCreatorId()
         })
 
         onUnmounted(() => {
-            getProfileById()
+            // getProfileById()
+
         })
 
         return {
-            profile: computed(() => AppState.profile)
+            profile: computed(() => AppState.profile),
+            posts: computed(() => AppState.posts)
         }
     }
 }
@@ -67,6 +73,8 @@ export default {
 
 <style lang="scss" scoped>
 .profile-picture {
+    transform: translateY(-7vh);
+
     height: 10vh;
     width: 10vh;
     border-radius: 50%;

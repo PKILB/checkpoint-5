@@ -47,7 +47,6 @@ export default {
 
 <style lang="scss" scoped>
 .profile-picture {
-    transform: translateY(10vh);
     height: 5vh;
     width: 5vh;
     border-radius: 50%;
