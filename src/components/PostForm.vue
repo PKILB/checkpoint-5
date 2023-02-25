@@ -6,7 +6,7 @@
                     <img class="ms-5 rounded-circle" :src="profile?.picture" alt="">
                 </div>
                 <div class="col-10 mt-5 text-center">
-                    <textarea required name="body" id="body" cols="65" rows="4" placeholder="Share what's happening here....."></textarea>
+                    <textarea required name="body" v-model="editable.body" id="body" cols="65" rows="4" placeholder="Share what's happening here....."></textarea>
                 </div>
                 <div class="col-12">
                     <div class="text-start d-flex justify-content-start align-items-center">
