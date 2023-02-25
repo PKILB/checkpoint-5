@@ -23,6 +23,12 @@ class PostsService {
         AppState.posts = res.data.posts.map(p => new Post(p))
     }
 
+    async createPost(postData) {
+        const res = await api.post('api/posts', postData)
+        AppState.posts.push(res.data)
+        return res.data
+    }
+
     // async changePage(url) {
     //     const res = await api.get(url)
     //     logger.log('[Change Page]', res.data)
