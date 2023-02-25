@@ -16,6 +16,9 @@
                     <div class="ms-3">
                         <p>{{ post.body }}</p>
                     </div>
+                    <div class="col-12">
+                        <img class="post-image img-fluid" h-10vh :src="post.img" alt="">
+                    </div>
 
                 <div class="col-12 text-end">
                     <h2>Likes</h2>
@@ -53,5 +56,10 @@ export default {
     width: 5vh;
     border-radius: 50%;
     box-shadow: 2px 2px 4px black;
+}
+
+.post-image {
+    height: 75vh;
+    width: 100%;
 }
 </style>
