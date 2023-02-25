@@ -2,7 +2,7 @@
     <div class="col-8 m-auto border border-dark rounded">
         <div class="row">
                     <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}">
-                    <div class="col-1 d-flex align-items-center my-3 card">
+                    <div class="col-1 d-flex align-items-center my-3">
                         <img class="profile-picture" :src="post.creator.picture" :alt="post.creator.name">
                     </div>
                 </router-link>
