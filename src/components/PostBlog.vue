@@ -1,15 +1,17 @@
 <template>
-    <div class="col-8 m-auto border border-dark rounded">
+    <div class="col-8 m-auto border border-dark rounded elevation-2">
         <div class="row">
                     <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}">
-                    <div class="col-1 d-flex align-items-center my-3">
-                        <img class="profile-picture" :src="post.creator.picture" :alt="post.creator.name">
+                    <div class="d-flex">
+                        <div class="col-1 align-items-center my-3">
+                            <img class="profile-picture" :src="post.creator.picture" :alt="post.creator.name">
+                        </div>
+                        <div class="col-11 me-4 d-flex align-items-center text-start my-3">
+                            <h6 class="ms-3">{{ post.creator.name }}</h6>
+                        </div>
                     </div>
                 </router-link>
                 
-                    <div class="col-11 text-start my-3">
-                        <h6 class="ms-3">{{ post.creator.name }}</h6>
-                    </div>
                     <div class="col-12 text-end">
                         <p class="me-2">11:26 p.m.</p>
                     </div>
@@ -52,8 +54,8 @@ export default {
 
 <style lang="scss" scoped>
 .profile-picture {
-    height: 5vh;
-    width: 5vh;
+    height: 9vh;
+    width: 9vh;
     border-radius: 50%;
     box-shadow: 2px 2px 4px black;
 }
