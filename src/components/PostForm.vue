@@ -1,17 +1,16 @@
 <template>
     <form>
         <div class="col-8 border border-dark m-auto">
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col-2">
-                    <!-- <img :src="profile.picture" alt=""> -->
+                    <img class="ms-4 rounded-circle" :src="profile?.picture" alt="">
                 </div>
-                <div class="col-10 mt-5">
-                    <!-- <label for="body" class="form-label">Body</label> -->
-                    <textarea required name="body" id="body" cols="60" rows="5" placeholder="Share what's happening here....."></textarea>
+                <div class="col-10 mt-5 text-center">
+                    <textarea required name="body" id="body" cols="45" rows="4" placeholder="Share what's happening here....."></textarea>
                 </div>
                 <div class="col-12">
-                    <div class="d-flex align-items-center">
-                        <h6 class="">Photos/Videos</h6>
+                    <div class="text-start d-flex justify-content-start align-items-center">
+                        <h6 class="ms-4">Photos/Videos</h6>
                     </div>
                     <div class="flex-grow-1 text-end align-items-center">
                         <button type="submit" class="col-2 btn btn-primary text-center my-3 mx-4">
@@ -26,9 +25,19 @@
 
 
 <script>
+import { computed } from 'vue';
+import { AppState } from '../AppState.js';
+
 export default {
+    
     setup(){
-        return {}
+
+        // onMounted(() => {
+        //     getProfileById()
+        // })
+        return {
+            profile: computed(() => AppState.account)
+        }
     }
 }
 </script>

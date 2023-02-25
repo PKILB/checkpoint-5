@@ -16,6 +16,7 @@ import {postsService} from '../services/PostsService.js'
 import { onMounted, computed } from 'vue';
 import { AppState } from '../AppState.js';
 import PostBlog from '../components/PostBlog.vue';
+// import { Profile } from '../models/Account.js';
 
 export default {
     setup() {
