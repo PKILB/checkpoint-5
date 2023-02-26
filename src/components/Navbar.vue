@@ -18,11 +18,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
+      
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
+          <form @submit.prevent="searchPostsAndProfiles()">
+          <div class="input-group">
+            <input v-model="editable.query" required type="text" class="form-control" placeholder="Search posts or profiles"
+            aria-label="Search posts or profiles" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+              <i class="mdi mdi-magnify"></i>
+            </button>
+          </div>
+          </form>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -32,10 +39,31 @@
 </template>
 
 <script>
+import { ref, computed } from 'vue';
+import { postsService } from '../services/PostsService.js';
+import { profilesService } from '../services/ProfilesService.js';
+import { logger } from '../utils/Logger.js';
+import Pop from '../utils/Pop.js';
 import Login from './Login.vue'
 export default {
   setup() {
-    return {}
+    const editable = ref({})
+    return {
+      editable,
+      profile: computed(() => AppState.account),
+      posts: computed(() => AppState.posts),
+      
+      async searchPostsAndProfiles() {
+        try {
+          let searchData = this.editable.value
+          await postsService.searchPostsAndProfiles(searchData)
+          await profilesService.searchPostsAndProfiles(searchData)
+        } catch (error) {
+          logger.error(error)
+          Pop.error(error.message)
+        }
+      }
+    }
   },
   components: { Login }
 }

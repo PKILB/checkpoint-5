@@ -6,6 +6,12 @@
     <div v-for="p in posts" class="row my-4">
       <PostBlog :post="p" />
     </div>
+    <div class="row">
+      <div class="col-8 m-auto gap-2">
+      <button class="btn btn-outline-primary w-25" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
+      <button class="btn btn-outline-primary w-25"  :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +39,19 @@ export default {
             getPosts();
         });
         return {
-            posts: computed(() => AppState.posts)
+            posts: computed(() => AppState.posts),
+            nextPage: computed(() => AppState.nextPage),
+            previousPage: computed(() => AppState.previousPage),
+            // currentPage: computed(() => AppState.currentPage),
+
+            async changePage(url) {
+              try {
+                await postsService.changePage(url)
+              } catch (error) {
+                logger.error(error)
+                Pop.error(error)
+              }
+            }
         };
     },
     components: { PostBlog }

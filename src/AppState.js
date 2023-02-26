@@ -12,15 +12,16 @@ export const AppState = reactive({
   /** @type {import('./models/Post.js').Post|null} */
   post: {},
   
-  /** @type {Number} */
-  currentPage: 1,
   
   /** @type {Number} */
-  nextPage: null,
+  nextPage: 0,
   
   /** @type {Number} */
-  previousPage: null,
+  previousPage: 0,
   
   /** @type {import('./models/Profile.js').Profile|null} */
-  profile: null
+  profile: null,
+  
+  /** @type {String|null} */
+  query: null
 })
