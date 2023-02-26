@@ -8,11 +8,14 @@
                 <div class="col-10 mt-5 text-center">
                     <textarea required name="body" v-model="editable.body" id="body" cols="55" rows="7" placeholder="Share what's happening here....."></textarea>
                 </div>
-                <div class="col-12">
-                    <div class="text-start d-flex justify-content-start align-items-center">
-                        <h6 class="ms-4">Photos/Videos</h6>
+                <div class="col-2">
+                </div>
+                <div class="col-10 d-flex">
+                    <div class="text-start justify-content-start align-items-center mt-3">
+                        <input required type="text" v-model="editable.img" class="form-control w-20" id="img" placeholder="Pictures"
+                        name="img">
                     </div>
-                    <div class="flex-grow-1 text-end align-items-center">
+                    <div class="flex-grow-1 text-end justify-content-end align-items-center">
                         <button type="submit" class="col-2 btn btn-outline-primary text-center my-3 mx-4">
                             Post
                         </button>
