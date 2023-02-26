@@ -17,19 +17,21 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="d-flex flex-grow-1">
+      <form @submit.prevent="searchPostsAndProfiles()">
+      <div class="input-group">
+        <input v-model="editable.query" required type="text" class="form-control" placeholder="Search posts or profiles"
+        aria-label="Search posts or profiles" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+          <i class="mdi mdi-magnify"></i>
+        </button>
+      </div>
+      </form>
+    </div>
     <div class="collapse navbar-collapse" id="navbarText">
       
       <ul class="navbar-nav me-auto">
         <li>
-          <form @submit.prevent="searchPostsAndProfiles()">
-          <div class="input-group">
-            <input v-model="editable.query" required type="text" class="form-control" placeholder="Search posts or profiles"
-            aria-label="Search posts or profiles" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
-              <i class="mdi mdi-magnify"></i>
-            </button>
-          </div>
-          </form>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -55,9 +57,10 @@ export default {
       
       async searchPostsAndProfiles() {
         try {
-          let searchData = this.editable.value
-          await postsService.searchPostsAndProfiles(searchData)
-          await profilesService.searchPostsAndProfiles(searchData)
+          let searchData = editable.value
+          await postsService.searchPosts(searchData)
+          await profilesService.searchProfiles(searchData)
+          editable.value = {}
         } catch (error) {
           logger.error(error)
           Pop.error(error.message)

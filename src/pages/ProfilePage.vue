@@ -17,6 +17,12 @@
         <div v-for="posts in posts" class="row my-4">
             <PostBlog class="elevation-5" :post="posts" />
         </div>
+        <div class="row">
+      <div class="col-8 m-auto">
+      <button class="btn btn-outline-primary w-25" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
+      <button class="btn btn-outline-primary w-25"  :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
+      </div>
+    </div>
     </div>
 </template>
 
@@ -64,7 +70,18 @@ export default {
 
         return {
             profile: computed(() => AppState.profile),
-            posts: computed(() => AppState.posts)
+            posts: computed(() => AppState.posts),
+            nextPage: computed(() => AppState.nextPage),
+            previousPage: computed(() => AppState.previousPage),
+
+            async changePage(url) {
+              try {
+                await postsService.changePage(url)
+              } catch (error) {
+                logger.error(error)
+                Pop.error(error)
+              }
+            }
         }
     }
 }

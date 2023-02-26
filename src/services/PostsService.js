@@ -27,14 +27,19 @@ class PostsService {
     async createPost(postData) {
         const res = await api.post('api/posts', postData)
         AppState.posts.push(res.data)
+        if(!post){
+            throw new Error('Login!!')
+        }
         return res.data
     }
 
-    async searchPostsAndProfiles(searchData) {
+    async searchPosts(searchData) {
         const res = await api.get('search/posts', { params: searchData, query: AppState.query})
         logger.log('searching api', res.data)
         AppState.query = searchData.query
         AppState.posts = res.data.results.map(p => new Post(p))
+        AppState.nextPage = res.data.older
+        AppState.previousPage = res.data.newer
     }
 
     async changePage(url) {

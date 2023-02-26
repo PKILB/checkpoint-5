@@ -55,7 +55,7 @@ export default {
                             router.push({ name: 'Post', params: { postId: post.id } })
                         }
                 } catch (error) {
-                    Pop.error(error, '[Submitting Post]')
+                    Pop.error('You Need To Login!!')
                 }
             }
         }

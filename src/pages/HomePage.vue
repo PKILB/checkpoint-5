@@ -7,7 +7,7 @@
       <PostBlog :post="p" />
     </div>
     <div class="row">
-      <div class="col-8 m-auto gap-2">
+      <div class="col-8 m-auto">
       <button class="btn btn-outline-primary w-25" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
       <button class="btn btn-outline-primary w-25"  :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
       </div>
