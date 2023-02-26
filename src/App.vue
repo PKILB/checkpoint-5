@@ -3,8 +3,19 @@
     <Navbar />
   </header>
   <main>
-    
-      <router-view />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          Hello
+        </div>
+        <div class="col-8">
+          <router-view />
+        </div>
+        <div class="col-2">
+          <Ads />
+        </div>
+      </div>
+    </div>
 
     
   </main>
@@ -16,6 +27,7 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
+import Ads from './components/Ads.vue'
 import Navbar from './components/Navbar.vue'
 
 export default {
@@ -24,7 +36,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar }
+  components: { Navbar, Ads }
 }
 </script>
 <style lang="scss">

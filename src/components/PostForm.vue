@@ -3,10 +3,10 @@
         <div class="col-10 border border-dark m-auto">
             <div class="row d-flex align-items-center">
                 <div class="col-2">
-                    <img class="ms-5 rounded-circle" :src="profile?.picture" alt="">
+                    <img class="ms-5 mb-3 rounded-circle" :src="profile?.picture" alt="">
                 </div>
                 <div class="col-10 mt-5 text-center">
-                    <textarea required name="body" v-model="editable.body" id="body" cols="95" rows="7" placeholder="Share what's happening here....."></textarea>
+                    <textarea required name="body" v-model="editable.body" id="body" cols="55" rows="7" placeholder="Share what's happening here....."></textarea>
                 </div>
                 <div class="col-12">
                     <div class="text-start d-flex justify-content-start align-items-center">
