@@ -22,7 +22,7 @@
                     <p>{{ post.body }}</p>
                 </div>
                 <div class="col-12">
-                    <img class="post-image img-fluid" h-10vh :src="post.img" alt="">
+                    <img class="post-image img-fluid" h-10vh :src="post.img" alt="Broken">
                 </div>
 
                 <div class="col-12">

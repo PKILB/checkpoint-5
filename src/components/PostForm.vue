@@ -13,7 +13,7 @@
                 <div class="col-10 d-flex">
                     <div class="text-start justify-content-start align-items-center mt-3">
                         <input required type="text" v-model="editable.img" class="form-control w-20" id="img" placeholder="Pictures"
-                        name="img">
+                        name="imgUrl">
                     </div>
                     <div class="flex-grow-1 text-end justify-content-end align-items-center">
                         <button type="submit" class="col-2 btn btn-outline-primary text-center my-3 mx-4">

@@ -18,10 +18,12 @@ class PostsService {
         logger.log(AppState.posts)
     }
 
-    async getPostsByQuery(query) {
-        const res = await api.get('api/posts', {params: query })
+    async getPostsByQuery(url) {
+        const res = await api.get('api/posts', url + {query: AppState.query.posts.body })
         logger.log('getting posts by profile', res.data)
         AppState.posts = res.data.posts.map(p => new Post(p))
+        AppState.nextPage = res.data.older
+        AppState.previousPage = res.data.newer
     }
 
     async createPost(postData) {
