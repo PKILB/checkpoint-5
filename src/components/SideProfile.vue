@@ -11,7 +11,9 @@
               </div>
               <div class="row mt-2">
                 <div class="col-12 text-start">
-                  <h4>{{ profile.name }}</h4>
+                  <span :class="`${profile.graduated ? 'sick-font' : ''}`">
+                    <h3>{{ profile.name }}</h3>
+                  </span>
                 </div>
               </div>
               <div class="row">
@@ -56,7 +58,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.sick-font {
+    font-family: 'Tilt Prism', cursive ;
+    font-size: 2em;
+}
 .profile-picture {
     height: 30vh;
     width: 30vh;
