@@ -27,9 +27,9 @@ class PostsService {
     async createPost(postData) {
         const res = await api.post('api/posts', postData)
         AppState.posts.push(res.data)
-        if(!post){
-            throw new Error('Login!!')
-        }
+        // if(!post){
+        //     throw new Error('Login!!')
+        // }
         return res.data
     }
 
@@ -53,6 +53,19 @@ class PostsService {
 
         // AppState.currentPage = res.data.next
         AppState.previousPage = res.data.newer
+    }
+
+    // async likePost(postId) {
+    //     let res = await api.post('api/posts/' + post.id)
+    // }
+
+
+    async removePost(postId) {
+        const res = await api.delete('api/posts' + postId)
+        let i = AppState.posts.findIndex(p => p.id == postId)
+        if (i != -1) {
+            AppState.posts.splice(i, 1)
+        }
     }
 }
 

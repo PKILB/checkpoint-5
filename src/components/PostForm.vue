@@ -50,11 +50,13 @@ export default {
 
             async handleSubmit() {
                 try {
+                    window.event.preventDefault()
+                    // let form = window.event.target
                     const post = editable.value.id
                         await postsService.createPost(editable.value)
 
                         editable.value = {}
-                        if(post.id) {
+                        if(post?.id) {
                             router.push({ name: 'Post', params: { postId: post.id } })
                         }
                 } catch (error) {
