@@ -46,7 +46,12 @@ export default {
 
             async changePage(url) {
               try {
-                await postsService.changePage(url)
+                if (AppState.query) {
+                  await postsService.changePageByQuery(url)
+                }
+                else {
+                  await postsService.changePage(url)
+                }
               } catch (error) {
                 logger.error(error)
                 Pop.error(error)

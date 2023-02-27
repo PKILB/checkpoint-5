@@ -26,13 +26,13 @@ async changePage(url) {
     AppState.previousPage = res.data.newer
 }
 
-async searchProfiles(searchData) {
-    const res = await api.get('search/profiles', { params: searchData, query: AppState.query})
-    logger.log('searching api', res.data)
-    AppState.query = searchData.query
-    AppState.profiles = res.data.results.map(p => new Profile(p))
-    AppState.nextPage = res.data.older
-}
+// async searchProfiles(searchData) {
+//     const res = await api.get('search/profiles', { params: searchData, query: AppState.query})
+//     logger.log('searching api', res.data)
+//     AppState.query = searchData.query
+//     AppState.profiles = res.data.results.map(p => new Profile(p))
+//     AppState.nextPage = res.data.older
+// }
 }
 
 export const profilesService = new ProfilesService()

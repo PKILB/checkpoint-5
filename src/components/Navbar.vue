@@ -59,7 +59,7 @@ export default {
         try {
           let searchData = editable.value
           await postsService.searchPosts(searchData)
-          await profilesService.searchProfiles(searchData)
+          // await profilesService.searchProfiles(searchData)
           editable.value = {}
         } catch (error) {
           logger.error(error)
