@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="handleSubmit">
+    <form v-if="profile.email" @submit.prevent="handleSubmit">
         <div class="col-10 border border-dark m-auto">
             <div class="row d-flex align-items-center">
                 <div class="col-2">

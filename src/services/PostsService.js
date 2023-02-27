@@ -69,9 +69,11 @@ class PostsService {
         AppState.previousPage = res.data.newer
     }
 
-    // async likePost(postId) {
-    //     let res = await api.post('api/posts/' + post.id)
-    // }
+    async addLike(postId) {
+        console.log('addLike working')
+        let res = await api.post('api/posts/' + postId + '/like')
+        console.log(res.data.likes.length)
+    }
 
 
     async removePost(postId) {

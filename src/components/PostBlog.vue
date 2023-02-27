@@ -28,7 +28,10 @@
                 <div class="col-12">
                     <div class="row mt-3">
                         <div class="col-6 text-start">
-                            <h2>Likes</h2>
+                            <button v-if="profile.email" class="btn" @click="addLike(post.id)">
+                                <i class="mdi mdi-heart"></i>
+                            </button>
+                            Likes: {{ post.likeIds.length }}
                         </div>
                         <div class="col-6 text-end">
                             <button @click="removePost(post.id)" v-if="profile?.id == post.creator.id" class="btn btn-outline-danger">
@@ -76,6 +79,7 @@ export default {
         // const postId = AppState.post.id
         // const profileId = AppState.profile
         // console.log(AppState.post)
+        
         return {
             // postId,
             profile: computed(() => AppState.account),
@@ -89,6 +93,15 @@ export default {
                     // router.push({ name: 'Posts' })
                 } catch (error) {
                     Pop.error(error, '[Removing Post]')
+                }
+            },
+
+            async addLike(postId) {
+                try {
+                    await postsService.addLike(postId)
+                    window.location.reload()
+                } catch (error) {
+                    Pop.error(error, '[Liking Post]')
                 }
             }
         }
