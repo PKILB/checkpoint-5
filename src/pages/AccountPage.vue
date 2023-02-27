@@ -30,6 +30,10 @@
             <label for="linkedin" class="form-label">LinkedIn</label>
             <input v-model="editable.linkedin" type="url" :placeholder="profile.linkedin" class="form-control" id="linkedin">
           </div>
+          <div class="mb-3">
+            <label for="class" class="form-label">Class</label>
+            <input v-model="editable.class" type="text" :placeholder="profile.class" class="form-control" id="class">
+          </div>
           <div class="form-check mb-3">
             <input v-model="editable.graduated" :checked="editable.graduated" class="form-check-input" type="checkbox"
               id="flexCheckDefault">
