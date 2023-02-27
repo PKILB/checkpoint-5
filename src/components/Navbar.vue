@@ -52,14 +52,14 @@ export default {
     const editable = ref({})
     return {
       editable,
-      profile: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
       posts: computed(() => AppState.posts),
       
       async searchPostsAndProfiles() {
         try {
           let searchData = editable.value
           await postsService.searchPosts(searchData)
-          // await profilesService.searchProfiles(searchData)
+          await profilesService.searchProfiles(searchData)
           editable.value = {}
         } catch (error) {
           logger.error(error)

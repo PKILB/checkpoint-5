@@ -9,7 +9,7 @@ export const AppState = reactive({
   /** @type {import('./models/Post.js').Post[]} */
   posts: [],
   
-  /** @type {import('./models/Post.js').Post|null} */
+  /** @type {import('./models/Post.js').Post} */
   post: {},
   
   /** @type {import('./models/Ad.js').Ad[]} */
@@ -25,7 +25,7 @@ export const AppState = reactive({
   previousPage: 0,
   
   /** @type {import('./models/Profile.js').Profile|null} */
-  profile: null,
+  profile: {},
   
   /** @type {String|null} */
   query: null

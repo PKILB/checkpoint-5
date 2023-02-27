@@ -31,7 +31,7 @@
                             <h2>Likes</h2>
                         </div>
                         <div class="col-6 text-end">
-                            <button @click="removePost" class="btn btn-outline-danger">
+                            <button @click="removePost(post.id)" v-if="profile?.id == post.creator.id" class="btn btn-outline-danger">
                                 <i class="mdi mdi-delete"></i>
                             </button>
                         </div>
@@ -44,7 +44,7 @@
 
 
 <script>
-// import { computed } from 'vue';
+import { computed } from 'vue';
 // import { useRoute } from 'vue-router';
 // import { AppState } from '../AppState.js';
 import { AppState } from '../AppState.js';
@@ -73,17 +73,20 @@ export default {
 
     setup(){
         // const route = useRoute()
-        const postId = AppState.post.id
-
+        // const postId = AppState.post.id
+        // const profileId = AppState.profile
+        // console.log(AppState.post)
         return {
-            postId,
+            // postId,
+            profile: computed(() => AppState.account),
             // account: computed(() => AppState.account),
             // post: computed(() => AppState.post),
 
-            async removePost() {
+            async removePost(postId) {
                 try {
+                    // console.log(postId)
                     await postsService.removePost(postId)
-                    router.push({ name: 'Posts' })
+                    // router.push({ name: 'Posts' })
                 } catch (error) {
                     Pop.error(error, '[Removing Post]')
                 }

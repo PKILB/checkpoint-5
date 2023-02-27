@@ -18,6 +18,12 @@ class PostsService {
         logger.log(AppState.posts)
     }
 
+    // async getPostById(postId) {
+    //     const res = await api.get('api/post' + postId)
+    //     logger.log('getting post by id', res.data)
+    //     AppState.post = new Post(res.data)
+    // }
+
     
     async createPost(postData) {
         const res = await api.post('api/posts', postData)
@@ -69,7 +75,9 @@ class PostsService {
 
 
     async removePost(postId) {
+        console.log(postId)
         const res = await api.delete('api/posts/' + postId)
+
         let i = AppState.posts.findIndex(p => p.id == postId)
         if (i != -1) {
             AppState.posts.splice(i, 1)
