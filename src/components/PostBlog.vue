@@ -1,5 +1,5 @@
 <template>
-    <div class="col-8 m-auto border border-dark rounded elevation-2">
+    <div class="col-8 m-auto bg-color border border-dark rounded custom-shadow">
         <div class="row">
             <div class="col-12">
                 <div class="row">
@@ -18,7 +18,7 @@
                 <div class="col-12 text-end">
                     <p class="me-2">{{ post.createdAt }}</p>
                 </div>
-                <div class="ms-3">
+                <div class="ms-3 mb-3">
                     <p>{{ post.body }}</p>
                 </div>
                 <div class="col-12">
@@ -33,7 +33,7 @@
                             </button>
                             Likes: {{ post.likeIds.length }}
                         </div>
-                        <div class="col-6 text-end">
+                        <div class="col-6 text-end mb-2">
                             <button @click="removePost(post.id)" v-if="profile?.id == post.creator.id" class="btn btn-outline-danger">
                                 <i class="mdi mdi-delete"></i>
                             </button>
@@ -118,8 +118,15 @@ export default {
     box-shadow: 2px 2px 4px black;
 }
 
+.bg-color {
+    background-color: rgb(218, 218, 218);
+}
 .post-image {
     height: 75vh;
     width: 100%;
+}
+
+.custom-shadow {
+    box-shadow: 1px 2px #070707;
 }
 </style>

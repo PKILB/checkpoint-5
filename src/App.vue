@@ -5,14 +5,10 @@
   <main>
     <div class="container-fluid">
       <div class="row">
+        
         <div class="col-2">
-          <!-- <div class="row mt-4">
-            <div class="col-8 m-auto">
-              <img class="rounded-circle" :src="profile.picture" :alt="profile.name">
-            </div>
-          </div> -->
+          <SideProfile />
         </div>
-        <!-- <SideProfile /> -->
         <div class="col-8">
           <router-view />
         </div>

@@ -1,6 +1,6 @@
 <template>
     <form v-if="profile.email" @submit.prevent="handleSubmit">
-        <div class="col-10 border border-dark m-auto">
+        <div class="col-10 border border-dark m-auto bg-light custom-shadow">
             <div class="row d-flex align-items-center">
                 <div class="col-2">
                     <img class="ms-5 mb-3 profile-picture" :src="profile?.picture" alt="">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-10 d-flex">
                     <div class="text-start justify-content-start align-items-center mt-3">
-                        <input required type="text" v-model="editable.img" class="form-control w-20" id="img" placeholder="Pictures"
+                        <input type="text" v-model="editable.img" class="form-control w-20" id="img" placeholder="Pictures"
                         name="imgUrl">
                     </div>
                     <div class="flex-grow-1 text-end justify-content-end align-items-center">
@@ -71,6 +71,9 @@ export default {
 
 <style lang="scss" scoped>
 
+.custom-shadow {
+    box-shadow: 1px 2px #070707;
+}
 .profile-picture {
     // transform: translateY(-7vh);
 

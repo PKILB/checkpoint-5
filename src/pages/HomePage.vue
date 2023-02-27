@@ -64,6 +64,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.bg-color {
+  background-color: #e1dbdb;
+}
 .home {
   display: grid;
   height: 80vh;

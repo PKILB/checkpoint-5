@@ -32,17 +32,17 @@
                     <div class="row">
                         <div class="col-2">
                             <div class="ms-3">
-                                <h4 class="">{{ profile.class }}</h4>
+                                <h5 class="position-move">{{ profile.class }}</h5>
                             </div>
                         </div>
-                        <div class="col-12 text-start ps-3">
+                        <div class="col-12 text-start ms-3">
                             <h2>
                                 <span :class="`${profile.graduated ? 'sick-font' : ''}`">
                                     {{ profile.name }}
                                 </span>
                             </h2>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 ms-3">
                             <p>{{ profile.bio }}</p>
                         </div>
                     </div>
@@ -147,6 +147,10 @@ export default {
     width: 3vh;
     border-radius: 50%;
     box-shadow: 2px 2px 2px black;
+}
+
+.position-move {
+    transform: translateY(-10vh);
 }
 }
 </style>
