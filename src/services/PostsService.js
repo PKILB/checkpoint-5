@@ -37,6 +37,11 @@ class PostsService {
             AppState.previousPage = res.data.newer
         }
 
+        async getPostsByQuery(query) {
+            const res = await api.get('api/posts', { params: query })
+            AppState.posts = res. data.posts.map(p => new Post(p))
+        }
+
         async changePageByQuery(url) {
             const res = await api.get('api/posts', url + { params: { query: AppState.query }})
             logger.log('changing page', res.data)
@@ -64,7 +69,7 @@ class PostsService {
 
 
     async removePost(postId) {
-        const res = await api.delete('api/posts' + postId)
+        const res = await api.delete('api/posts/' + postId)
         let i = AppState.posts.findIndex(p => p.id == postId)
         if (i != -1) {
             AppState.posts.splice(i, 1)

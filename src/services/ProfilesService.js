@@ -13,6 +13,11 @@ async getProfileById(profileId) {
     AppState.profile = new Profile(res.data)
 }
 
+// async changePageByQuery(url) {
+//     const res = await api
+
+// }
+
 async changePage(url) {
     console.log(url)
     const res = await api.get(url)
