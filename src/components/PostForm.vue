@@ -3,7 +3,7 @@
         <div class="col-10 border border-dark m-auto">
             <div class="row d-flex align-items-center">
                 <div class="col-2">
-                    <img class="ms-5 mb-3 rounded-circle" :src="profile?.picture" alt="">
+                    <img class="ms-5 mb-3 profile-picture" :src="profile?.picture" alt="">
                 </div>
                 <div class="col-10 mt-5 text-center">
                     <textarea required name="body" v-model="editable.body" id="body" cols="55" rows="7" placeholder="Share what's happening here....."></textarea>
@@ -70,5 +70,14 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.profile-picture {
+    // transform: translateY(-7vh);
+
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    box-shadow: 2px 2px 
+}
 
 </style>
