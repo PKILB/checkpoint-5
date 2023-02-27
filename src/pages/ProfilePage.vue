@@ -53,7 +53,7 @@
             <PostBlog class="elevation-5" :post="posts" />
         </div>
         <div class="row">
-      <div class="col-8 m-auto">
+      <div class="col-8 m-auto d-flex gap-5 justify-content-center">
       <button class="btn btn-outline-primary w-25" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
       <button class="btn btn-outline-primary w-25"  :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
       </div>
